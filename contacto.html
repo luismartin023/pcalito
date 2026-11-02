@@ -73,6 +73,29 @@
               <input type="date" id="fecha" name="fecha" />
             </p>
           </fieldset>
+          <fieldset>
+            <legend>Tu solicitud</legend>
+
+            <p>
+              <label for="tipo">¿Qué necesitas? *</label><br />
+              <select id="tipo" name="tipo" required>
+                <option value="">— Elige —</option>
+                <optgroup label="Taller">
+                  <option value="diagnostico">Diagnóstico (RD$ 500)</option>
+                  <option value="mantenimiento">Mantenimiento</option>
+                  <option value="reparacion">Reparación</option>
+                </optgroup>
+                <optgroup label="Gaming">
+                  <option value="pc-gamer">PC gamer a medida</option>
+                  <option value="upgrade">Mejora de mi PC actual</option>
+                </optgroup>
+                <optgroup label="Ventas">
+                  <option value="laptop">Laptop</option>
+                  <option value="accesorios">Accesorios</option>
+                </optgroup>
+              </select>
+            </p>
+          </fieldset>
         </form>
       </section>
     </main>
