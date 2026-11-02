@@ -22,7 +22,60 @@
       </nav>
     </header>
 
-    <main></main>
+    <main>
+      <section>
+        <h2>Pide tu servicio o cotización</h2>
+        <p>
+          Los campos con <abbr title="obligatorio">*</abbr> son obligatorios.
+        </p>
+        <form action="#" method="get">
+          <fieldset>
+            <legend>Tus datos</legend>
+
+            <p>
+              <label for="nombre">Nombre completo *</label><br />
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                required
+                minlength="5"
+                maxlength="60"
+              />
+            </p>
+            <p>
+              <label for="correo">Correo *</label><br />
+              <input type="email" id="correo" name="correo" required />
+            </p>
+            <p>
+              <label for="telefono">Teléfono (809-000-0000) *</label><br />
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                required
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+              />
+            </p>
+            <p>
+              <label for="referencia"
+                >Link de una PC que viste y te gustó (opcional)</label
+              ><br />
+              <input
+                type="url"
+                id="referencia"
+                name="referencia"
+                placeholder="https://"
+              />
+            </p>
+            <p>
+              <label for="fecha">¿Para cuándo lo necesitas?</label><br />
+              <input type="date" id="fecha" name="fecha" />
+            </p>
+          </fieldset>
+        </form>
+      </section>
+    </main>
 
     <footer>
       <p>
