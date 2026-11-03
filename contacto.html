@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
       name="description"
       content="Contacta a PCalito en Verón: pide tu servicio de taller, cotización de PC gamer o compra de accesorios con el formulario"
-    />
+   >
     <title>Contacto | PCalito</title>
   </head>
   <body>
@@ -16,7 +16,7 @@
         alt="Logo de PCalito: monitor verde con las letras PC"
         width="72"
         height="72"
-      />
+     >
       <h1>Contacto</h1>
       <p>Tienda de computadoras y accesorios</p>
       <nav>
@@ -39,7 +39,7 @@
             <legend>Tus datos</legend>
 
             <p>
-              <label for="nombre">Nombre completo *</label><br />
+              <label for="nombre">Nombre completo *</label><br>
               <input
                 type="text"
                 id="nombre"
@@ -47,43 +47,43 @@
                 required
                 minlength="5"
                 maxlength="60"
-              />
+             >
             </p>
             <p>
-              <label for="correo">Correo *</label><br />
-              <input type="email" id="correo" name="correo" required />
+              <label for="correo">Correo *</label><br>
+              <input type="email" id="correo" name="correo" required>
             </p>
             <p>
-              <label for="telefono">Teléfono (809-000-0000) *</label><br />
+              <label for="telefono">Teléfono (809-000-0000) *</label><br>
               <input
                 type="tel"
                 id="telefono"
                 name="telefono"
                 required
                 pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-              />
+             >
             </p>
             <p>
               <label for="referencia"
                 >Link de una PC que viste y te gustó (opcional)</label
-              ><br />
+              ><br>
               <input
                 type="url"
                 id="referencia"
                 name="referencia"
                 placeholder="https://"
-              />
+             >
             </p>
             <p>
-              <label for="fecha">¿Para cuándo lo necesitas?</label><br />
-              <input type="date" id="fecha" name="fecha" />
+              <label for="fecha">¿Para cuándo lo necesitas?</label><br>
+              <input type="date" id="fecha" name="fecha">
             </p>
           </fieldset>
           <fieldset>
             <legend>Tu solicitud</legend>
 
             <p>
-              <label for="tipo">¿Qué necesitas? *</label><br />
+              <label for="tipo">¿Qué necesitas? *</label><br>
               <select id="tipo" name="tipo" required>
                 <option value="">— Elige —</option>
                 <optgroup label="Taller">
@@ -101,81 +101,86 @@
                 </optgroup>
               </select>
             </p>
+            <p>¿Cómo supiste de PCalito? *</p>
+            <p>
+              <input
+                type="radio"
+                id="fuente-amigo"
+                name="fuente"
+                value="amigo"
+                required
+             >
+              <label for="fuente-amigo">Un amigo me lo recomendó</label><br>
+              <input
+                type="radio"
+                id="fuente-frente"
+                name="fuente"
+                value="frente"
+             >
+              <label for="fuente-frente">Pasé por el frente del local</label
+              ><br>
+              <input
+                type="radio"
+                id="fuente-redes"
+                name="fuente"
+                value="redes"
+             >
+              <label for="fuente-redes">Redes sociales / Google</label>
+            </p>
+            <p>
+              <label for="equipos">Cantidad de equipos</label><br>
+              <input
+                type="number"
+                id="equipos"
+                name="equipos"
+                min="1"
+                max="15"
+                value="1"
+             >
+            </p>
+            <p>
+              <label for="presupuesto">Presupuesto (RD$)</label><br>
+              <input
+                type="range"
+                id="presupuesto"
+                name="presupuesto"
+                min="10000"
+                max="150000"
+                step="5000"
+             >
+            </p>
+            <p>
+              <label for="rgb">Color de luces si quieres una PC gamer</label
+              ><br>
+              <input type="color" id="rgb" name="rgb" value="#22C55E">
+            </p>
+            <p>
+              <label for="mensaje">Cuéntanos qué necesitas *</label><br>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="5"
+                cols="45"
+                required
+                minlength="20"
+                placeholder="Ej.: quiero una PC para estudiar y jugar Fortnite, tengo unos 45 mil..."
+              ></textarea>
+            </p>
+            <p>
+              <input
+                type="checkbox"
+                id="whatsapp"
+                name="prefiere"
+                value="whatsapp"
+             >
+              <label for="whatsapp">Respóndeme por WhatsApp</label><br>
+              <input type="checkbox" id="datos" name="datos" required>
+              <label for="datos"
+                >Acepto que PCalito use mis datos solo para responder *</label
+              >
+            </p>
+            <p><button type="submit">Enviar solicitud</button></p>
           </fieldset>
-          <p>¿Cómo supiste de PCalito? *</p>
-          <p>
-            <input
-              type="radio"
-              id="fuente-amigo"
-              name="fuente"
-              value="amigo"
-              required
-            />
-            <label for="fuente-amigo">Un amigo me lo recomendó</label><br />
-            <input
-              type="radio"
-              id="fuente-frente"
-              name="fuente"
-              value="frente"
-            />
-            <label for="fuente-frente">Pasé por el frente del local</label
-            ><br />
-            <input type="radio" id="fuente-redes" name="fuente" value="redes" />
-            <label for="fuente-redes">Redes sociales / Google</label>
-          </p>
-          <p>
-            <label for="equipos">Cantidad de equipos</label><br />
-            <input
-              type="number"
-              id="equipos"
-              name="equipos"
-              min="1"
-              max="15"
-              value="1"
-            />
-          </p>
-          <p>
-            <label for="presupuesto">Presupuesto (RD$)</label><br />
-            <input
-              type="range"
-              id="presupuesto"
-              name="presupuesto"
-              min="10000"
-              max="150000"
-              step="5000"
-            />
-          </p>
-          <p>
-            <label for="rgb">Color de luces si quieres una PC gamer</label
-            ><br />
-            <input type="color" id="rgb" name="rgb" value="#22C55E" />
-          </p>
-          <p>
-            <label for="mensaje">Cuéntanos qué necesitas *</label><br />
-            <textarea
-              id="mensaje"
-              name="mensaje"
-              rows="5"
-              cols="45"
-              required
-              minlength="20"
-              placeholder="Ej.: quiero una PC para estudiar y jugar Fortnite, tengo unos 45 mil..."
-            ></textarea>
-          </p>
-          <p>
-            <input
-              type="checkbox"
-              id="whatsapp"
-              name="prefiere"
-              value="whatsapp"
-            />
-            <label for="whatsapp">Respóndeme por WhatsApp</label><br />
-            <input type="checkbox" id="datos" name="datos" required />
-            <label for="datos"
-              >Acepto que PCalito use mis datos solo para responder *</label
-            >
-          </p>
-          <p><button type="submit">Enviar solicitud</button></p>
         </form>
       </section>
       <section id="directo">
