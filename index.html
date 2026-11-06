@@ -5,23 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
       name="description"
-      content="PCalito: la tienda de computadoras y accesorios de veron punta cana preferida por todos"
-   >
+      content="PCalito: la tienda de computadoras y accesorios de veron punta cana preferida por todos">
     <title>PCalito - Tienda RD</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/app.js" defer></script>
   </head>
   <body>
     <header>
-      <img
-        src="img/logo-pcalito.svg"
-        alt="Logo de PCalito: monitor verde con las letras PC"
-        width="72"
-        height="72"
-     >
-      <h1>PCalito</h1>
-      <p>Tienda de computadoras y accesorios</p>
+      <a href="index.html" class="marca">
+        <img
+          src="img/logo.png"
+          alt="Logo de PCalito, monitor de computadora"
+          width="48"
+          height="48"
+        >
+        <div>
+          <strong class="marca-nombre">PCalito</strong>
+          <small>Tienda de computadoras y accesorios</small>
+        </div>
+      </a>
       <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
+        <button
+          class="menu-btn"
+          aria-expanded="false"
+          aria-controls="lista-nav"
+          aria-label="Abrir menú"
+          type="button"
+        >
+          ☰
+        </button>
+        <button id="btn-tema" class="tema-btn" type="button">
+          Modo oscuro
+        </button>
+        <ul id="lista-nav">
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
@@ -29,6 +46,7 @@
     </header>
 
     <main>
+      <h1 class="titulo-pagina">Computadoras, accesorios y taller en Verón</h1>
       <article>
         <h2>Novedad: nueva vitrina gamer</h2>
         <p>
@@ -131,7 +149,11 @@
         Sitio desarrollado por LUIS MARTIN PEÑA MEJIA - Estudiante de Ingeniería
         de Software en la Universidad UCE Punta Cana - 2023-4341
       </p>
-      <p><small>&copy; 2026 PCalito · Verón, Punta Cana</small></p>
+      <p>
+        <small
+          >&copy; <span id="anio">2026</span> PCalito · Verón, Punta Cana</small
+        >
+      </p>
     </footer>
   </body>
 </html>
