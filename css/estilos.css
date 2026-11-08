@@ -215,3 +215,161 @@ summary {
   }
 }
 
+/* formulario */
+fieldset {
+  border: 1px solid var(--color-borde);
+  padding: var(--espacio);
+  margin-bottom: var(--espacio);
+}
+
+legend {
+  font-weight: bold;
+  color: var(--color-principal-oscuro);
+  padding: 0 0.5rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.opcion-linea {
+  margin: 0.35rem 0;
+}
+
+.opcion-linea label {
+  display: inline;
+  font-weight: normal;
+}
+
+input,
+select,
+textarea {
+  font-family: var(--fuente);
+  font-size: 1rem;
+  padding: 0.4rem;
+  border: 1px solid var(--color-borde);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  margin-top: 0.25rem;
+  width: 100%;
+  max-width: 32rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 0.3rem;
+}
+
+input[type="range"] {
+  max-width: 20rem;
+}
+
+input[type="color"] {
+  width: 4rem;
+  height: 2.2rem;
+  padding: 0.15rem;
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-principal);
+  outline-offset: 1px;
+}
+
+input.invalido,
+select.invalido,
+textarea.invalido {
+  border-color: var(--color-error);
+}
+
+.error {
+  display: block;
+  color: var(--color-error);
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
+  min-height: 1.1rem;
+}
+
+.resumen {
+  border: 2px solid var(--color-principal);
+  background: var(--color-fondo-alt);
+  padding: var(--espacio);
+}
+
+.resumen h3 {
+  margin-top: 0;
+  color: var(--color-principal-oscuro);
+}
+
+button[type="submit"] {
+  font-family: var(--fuente);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1.4rem;
+  border: 0;
+  background: var(--color-principal);
+  color: var(--color-header-texto);
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.subir {
+  position: fixed;
+  right: var(--espacio);
+  bottom: var(--espacio);
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--color-borde);
+  background: var(--color-header-bg);
+  color: var(--color-header-texto);
+  cursor: pointer;
+}
+
+/* tabla */
+.tabla-scroll {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 34rem;
+  font-size: 0.95rem;
+}
+
+caption {
+  caption-side: top;
+  font-weight: bold;
+  padding: 0.5rem;
+  background: var(--color-header-bg);
+  color: var(--color-header-texto);
+}
+
+th,
+td {
+  border: 1px solid var(--color-borde);
+  padding: 0.45rem;
+  text-align: left;
+}
+
+thead th {
+  background: var(--color-fondo-alt);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-fondo-alt);
+}
+
+tfoot td {
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+}
+
