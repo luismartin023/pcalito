@@ -168,3 +168,134 @@ if (contCatalogo) {
   selCategoria.addEventListener("change", filtrar);
 }
 
+const formulario = document.getElementById("form-contacto");
+
+function mostrarError(campo, mensaje) {
+  const span = document.getElementById("error-" + campo.id);
+  campo.classList.add("invalido");
+  if (span) {
+    span.textContent = mensaje;
+  }
+}
+
+function limpiarError(campo) {
+  const span = document.getElementById("error-" + campo.id);
+  campo.classList.remove("invalido");
+  if (span) {
+    span.textContent = "";
+  }
+}
+
+function telefonoDominicano(valor) {
+  return /^(809|829|849)-\d{3}-\d{4}$/.test(valor.trim());
+}
+
+function fechaNoEsPasada(valor) {
+  if (!valor) {
+    return true;
+  }
+  const hoy = new Date();
+  hoy.setHours(0, 0, 0, 0);
+  return new Date(valor + "T00:00:00") >= hoy;
+}
+
+if (formulario) {
+  formulario.querySelectorAll("input, select, textarea").forEach((campo) => {
+    campo.addEventListener("input", () => limpiarError(campo));
+    campo.addEventListener("change", () => limpiarError(campo));
+  });
+
+  formulario.addEventListener("submit", (event) => {
+    event.preventDefault();
+    let hayErrores = false;
+
+    const nombre = document.getElementById("nombre");
+    if (nombre.value.trim().split(/\s+/).length < 2) {
+      mostrarError(nombre, "Escribe nombre y apellido.");
+      hayErrores = true;
+    }
+
+    const correo = document.getElementById("correo");
+    if (!correo.value.includes("@") || !correo.value.includes(".")) {
+      mostrarError(correo, "Ese correo no parece válido.");
+      hayErrores = true;
+    }
+
+    const telefono = document.getElementById("telefono");
+    if (!telefonoDominicano(telefono.value)) {
+      mostrarError(
+        telefono,
+        "Debe ser dominicano: 809, 829 u 849 y con guiones (809-000-0000).",
+      );
+      hayErrores = true;
+    }
+
+    const fecha = document.getElementById("fecha");
+    if (!fechaNoEsPasada(fecha.value)) {
+      mostrarError(fecha, "La fecha no puede ser en el pasado.");
+      hayErrores = true;
+    }
+
+    const tipo = document.getElementById("tipo");
+    if (!tipo.value) {
+      mostrarError(tipo, "Elige qué necesitas.");
+      hayErrores = true;
+    }
+
+    const fuenteOk = formulario.querySelector('input[name="fuente"]:checked');
+    const spanFuente = document.getElementById("error-fuente");
+    if (!fuenteOk) {
+      if (spanFuente) {
+        spanFuente.textContent = "Marca una opción.";
+      }
+      hayErrores = true;
+    } else if (spanFuente) {
+      spanFuente.textContent = "";
+    }
+
+    const equipos = document.getElementById("equipos");
+    if (equipos.value && (equipos.value < 1 || equipos.value > 15)) {
+      mostrarError(equipos, "Entre 1 y 15 equipos.");
+      hayErrores = true;
+    }
+
+    const presupuesto = document.getElementById("presupuesto");
+    if (tipo.value === "pc-gamer" && Number(presupuesto.value) < 38000) {
+      mostrarError(
+        presupuesto,
+        "Una PC gamer sale desde RD$ 38,000. Sube el presupuesto.",
+      );
+      hayErrores = true;
+    }
+
+    const mensaje = document.getElementById("mensaje");
+    if (mensaje.value.trim().length < 20) {
+      mostrarError(mensaje, "Cuéntanos un poco más (mínimo 20 letras).");
+      hayErrores = true;
+    }
+
+    const datos = document.getElementById("datos");
+    if (!datos.checked) {
+      mostrarError(datos, "Necesitamos tu permiso para responderte.");
+      hayErrores = true;
+    }
+
+    if (hayErrores) {
+      return;
+    }
+
+    const resumen = document.getElementById("resumen");
+    if (resumen) {
+      resumen.hidden = false;
+      resumen.innerHTML =
+        `<h3>Solicitud enviada</h3>` +
+        `<p>Gracias <strong>${nombre.value.trim()}</strong>. ` +
+        `Te respondemos al correo <strong>${correo.value}</strong> o al ` +
+        `teléfono <strong>${telefono.value}</strong>.</p>` +
+        `<p>Servicio: <strong>${tipo.options[tipo.selectedIndex].text}</strong> · ` +
+        `Presupuesto: <strong>${precioRD(Number(presupuesto.value))}</strong></p>`;
+      resumen.scrollIntoView({ behavior: "smooth" });
+    }
+    formulario.reset();
+  });
+}
